@@ -81,7 +81,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [self.colorDict addObject:UIColorFromRGB(0xFFA07A)];
     [self.colorDict addObject:UIColorFromRGB(0xCDC8B1)];
     
-    [self.colorDict addObject:UIColorFromRGB(0x00BFFF)];
     
     
     
@@ -92,27 +91,24 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     for(NSArray * key in self.timetable)
     {
         if(![[self.timetable objectForKey:key] containsObject:@"\n7:30:AM-8:25:AM"]){
-        for(NSString * fullsubject in [self.timetable objectForKey:key])
-        {
-            NSString * subject;
-            subject= [[[fullsubject stringByTrimmingLeadingWhitespace] componentsSeparatedByString:@" "] objectAtIndex:0];
-            if(![[self.subjects allKeys] containsObject:subject] ){
-                if([subject isEqualToString:@"Empty"])
-                    [self.subjects setObject:[UIColor whiteColor] forKey:subject];
-                else
-                {
-                    [self.subjects setObject:[self randomColor] forKey:subject];
-                    NSLog(subject);
+            for(NSString * fullsubject in [self.timetable objectForKey:key])
+            {
+                NSString * subject;
+                subject= [[[fullsubject stringByTrimmingLeadingWhitespace] componentsSeparatedByString:@" "] objectAtIndex:0];
+                if(![[self.subjects allKeys] containsObject:subject] ){
+                    if([subject isEqualToString:@"Empty"])
+                        [self.subjects setObject:[UIColor whiteColor] forKey:subject];
+                    else
+                    {
+                        [self.subjects setObject:[self randomColor] forKey:subject];
+                        
+                    }
                 }
             }
         }
-            
-           
-            
-        }
-        
-        
     }
+    
+    NSLog(@"%@",self.subjects);
 }
 
 - (NSInteger)numberOfSectionsInA3GridTableView:(A3GridTableView *) gridTableView
@@ -172,6 +168,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     if(indexPath.section == 0)
     {
+
         cell.backgroundColor = UIColorFromRGB(0x4169E1);
         
     }

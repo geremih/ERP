@@ -23,10 +23,9 @@
     if (self) {
         // Custom initialization
     }
-    
-    
     return self;
 }
+
 - (IBAction)getSecurityQuestion:(id)sender {
     
     //Using multithreading
@@ -53,8 +52,6 @@
     [self.navigationController setNavigationBarHidden:YES];
     [self hideSecretQuestonRelatedStuff];
 
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
                                                  name:kReachabilityChangedNotification
@@ -74,7 +71,6 @@
 
 - (IBAction)logInPressed:(id)sender {
     
-    
     [self.answerText resignFirstResponder];
     [self.view setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
@@ -88,8 +84,7 @@
 
     [self performSegueWithIdentifier:@"SendToGrid" sender:self];
         
-        
-    });
+        });
 });
 
 dispatch_release(DownloadQueue);
@@ -146,7 +141,6 @@ dispatch_release(DownloadQueue);
         [alert addButtonWithTitle:@"Retry"];
         [alert show];
     }
-    
 }
 
 
@@ -167,11 +161,8 @@ dispatch_release(DownloadQueue);
     if ( [segue.identifier isEqualToString:@"SendToGrid"])
     {
         GridViewController *newcontroller = segue.destinationViewController;
-        
         newcontroller.html =  self.html;
-        
     }
-
 }
 
 @end

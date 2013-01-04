@@ -12,33 +12,24 @@
 
 @end
 
-
-
-
 @implementation GridViewController
 
 @synthesize myParser = _myParser, gridTableView =_gridTableView , myDataSource = _myDataSource , html = _html , timetable = _timetable;
 - (void)viewDidLoad
 {
-    
- 
     self.myParser = [[Parser alloc]init   ];
     self.timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
     
- //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
-
-
-  
-    
+    //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
     
     //Grid View
     
     self.gridTableView = [[A3GridTableView alloc] initWithFrame:self.view.bounds];
     self.gridTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-
+    
     self.myDataSource = [[GridDataSource alloc] init];
-[self.myDataSource displayGridUsingDictionary:self.timetable];
-
+    [self.myDataSource displayGridUsingDictionary:self.timetable];
+    
     // set datasource and delegate
     self.gridTableView.dataSource = self.myDataSource;
     self.gridTableView.delegate = self.myDataSource;
@@ -50,12 +41,10 @@
     
     // scrolling
     self.gridTableView.directionalLockEnabled = YES;
-
+    
     // add as subview
-  [self.view addSubview:self.gridTableView];
+    [self.view addSubview:self.gridTableView];
     //[self.view sendSubviewToBack:self.gridTableView];
-    
-    
     
 }
 

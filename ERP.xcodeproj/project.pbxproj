@@ -37,7 +37,6 @@
 		13D8C09E16804AD0008A1A6C /* WebHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D8C09D16804AD0008A1A6C /* WebHandler.m */; };
 		13D8C0A216806721008A1A6C /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D8C0A116806721008A1A6C /* Parser.m */; };
 		13D8C0AD16806A8D008A1A6C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D8C0AC16806A8D008A1A6C /* libxml2.dylib */; };
-		13E21D5A1681D28B009F84B8 /* erp1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 13E21D591681D28B009F84B8 /* erp1.xml */; };
 		13E365E01684C0CF0096D574 /* GridDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E365DF1684C0CF0096D574 /* GridDataSource.m */; };
 		13E365E71684C11F0096D574 /* A3GridTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E365E41684C11F0096D574 /* A3GridTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13E365E81684C11F0096D574 /* A3GridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E365E61684C11F0096D574 /* A3GridTableViewCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -50,7 +49,6 @@
 		13E3660E168504740096D574 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E3660D168504730096D574 /* Reachability.m */; };
 		13E36610168505370096D574 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E3660F168505370096D574 /* SystemConfiguration.framework */; };
 		13F376C61688E22B00DA7BD6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F376C51688E22B00DA7BD6 /* TPKeyboardAvoidingScrollView.m */; };
-		13F376C81688FB5E00DA7BD6 /* iit-kharagpur-logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 13F376C71688FB5E00DA7BD6 /* iit-kharagpur-logo.gif */; };
 		13F616EB167F54550068F585 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F616EA167F54550068F585 /* UIKit.framework */; };
 		13F616ED167F54550068F585 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F616EC167F54550068F585 /* Foundation.framework */; };
 		13F616EF167F54550068F585 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F616EE167F54550068F585 /* CoreGraphics.framework */; };
@@ -123,7 +121,6 @@
 		13D8C0A016806721008A1A6C /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		13D8C0A116806721008A1A6C /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		13D8C0AC16806A8D008A1A6C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		13E21D591681D28B009F84B8 /* erp1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = erp1.xml; sourceTree = "<group>"; };
 		13E365DE1684C0CF0096D574 /* GridDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridDataSource.h; sourceTree = "<group>"; };
 		13E365DF1684C0CF0096D574 /* GridDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridDataSource.m; sourceTree = "<group>"; };
 		13E365E31684C11F0096D574 /* A3GridTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A3GridTableView.h; sourceTree = "<group>"; };
@@ -142,7 +139,6 @@
 		13E3660F168505370096D574 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		13F376C41688E22B00DA7BD6 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
 		13F376C51688E22B00DA7BD6 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
-		13F376C71688FB5E00DA7BD6 /* iit-kharagpur-logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "iit-kharagpur-logo.gif"; sourceTree = "<group>"; };
 		13F616E6167F54550068F585 /* ERP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F616EA167F54550068F585 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		13F616EC167F54550068F585 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -330,9 +326,7 @@
 				13E365FF1684F8FB0096D574 /* LoginViewController.h */,
 				13E366001684F8FC0096D574 /* LoginViewController.m */,
 				13F616F1167F54550068F585 /* Supporting Files */,
-				13E21D591681D28B009F84B8 /* erp1.xml */,
 				13CAA0301695EFDC00665116 /* newtt.xml */,
-				13F376C71688FB5E00DA7BD6 /* iit-kharagpur-logo.gif */,
 				13E366021684FE150096D574 /* TODO.rtf */,
 			);
 			path = "Play with UIWebView";
@@ -411,13 +405,11 @@
 				13F616FF167F54550068F585 /* Default@2x.png in Resources */,
 				13F61701167F54550068F585 /* Default-568h@2x.png in Resources */,
 				13F61704167F54550068F585 /* MainStoryboard.storyboard in Resources */,
-				13E21D5A1681D28B009F84B8 /* erp1.xml in Resources */,
 				13E365F61684F6C50096D574 /* 6e965d8b679c476e5b9817e868b1a142.png in Resources */,
 				13E365F71684F6C50096D574 /* c983e310c178c52915d366a510c79f28.png in Resources */,
 				13E365F91684F6E00096D574 /* 6e965d8b679c476e5b9817e868b1a142.png in Resources */,
 				13E365FB1684F6EA0096D574 /* c983e310c178c52915d366a510c79f28.png in Resources */,
 				13E366031684FE150096D574 /* TODO.rtf in Resources */,
-				13F376C81688FB5E00DA7BD6 /* iit-kharagpur-logo.gif in Resources */,
 				13AE4565168A463300C59A0F /* logo.png in Resources */,
 				13CAA0311695EFDD00665116 /* newtt.xml in Resources */,
 			);

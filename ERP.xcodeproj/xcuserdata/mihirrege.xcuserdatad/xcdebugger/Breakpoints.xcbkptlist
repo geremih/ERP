@@ -34,32 +34,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378976606.559302"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "-getTimeTableDictionaryfromHTML:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378976606.559302"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "25"
-         endingLineNumber = "25"
-         landmarkName = "-getTimeTableDictionaryfromHTML:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/Parser.m"
          timestampString = "378976744.667232"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -125,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/GridDataSource.m"
-         timestampString = "378978038.342733"
+         timestampString = "378994662.052516"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "118"
-         endingLineNumber = "118"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
          landmarkName = "-numberOfSectionsInA3GridTableView:"
          landmarkType = "5">
       </FileBreakpoint>
