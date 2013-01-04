@@ -23,7 +23,7 @@
     
     self.webHandler = [[WebHandler alloc ] init];
     [super viewDidLoad];
-    self.html =  [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
+   self.html =  [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
    // NSLog(self.html);
     self.myParser = [[Parser alloc]init   ];
     

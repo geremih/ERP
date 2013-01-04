@@ -44,7 +44,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if(self=[super init])
     {
         
-        self.days = [[NSArray alloc] initWithObjects:@"Day Name",@"Mon",@"Tue",@"Wed", @"Thur", @"Fri", nil];
+        self.days = [[NSArray alloc] initWithObjects:@"\nDay Name",@"\nMon",@"\nTue",@"\nWed", @"\nThur", @"\nFri", nil];
     }
     return self;
 }
@@ -55,9 +55,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     srandom(time(NULL));
     self.timetable =timetable;
     self.subjects = [[NSMutableDictionary alloc] initWithCapacity:0 ];
-    //NSString *subject =@"EC1003 V3";
-    
-    
     self.colorDict = [[NSMutableArray alloc] initWithCapacity:0 ];
     
     //old
@@ -73,22 +70,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     
     [self.colorDict addObject:UIColorFromRGB(0xFFFACD)];
-  
-    
- 
-    /*
-    [self.colorDict addObject:UIColorFromRGB(0xCDAF95)];
-    [self.colorDict addObject:UIColorFromRGB(0xCDC9C9)];
-    [self.colorDict addObject:UIColorFromRGB(0xFFFACD)];
-    
-    [self.colorDict addObject:UIColorFromRGB(0x00FFFF)];
-    [self.colorDict addObject:UIColorFromRGB(0x6495ED)];
-    
-    */
-    
-    //Better ones
-    //[self.colorDict addObject:UIColorFromRGB(0x32CD32)];
-    
+      
     [self.colorDict addObject:UIColorFromRGB(0x00FF7F)];
     [self.colorDict addObject:UIColorFromRGB(0xDB7093)];
     [self.colorDict addObject:UIColorFromRGB(0x48D1CC)];
@@ -109,13 +91,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     for(NSArray * key in self.timetable)
     {
-        if(![[self.timetable objectForKey:key] containsObject:@"7:30:AM-8:25:AM"]){
+        if(![[self.timetable objectForKey:key] containsObject:@"\n7:30:AM-8:25:AM"]){
         for(NSString * fullsubject in [self.timetable objectForKey:key])
         {
             NSString * subject;
             subject= [[[fullsubject stringByTrimmingLeadingWhitespace] componentsSeparatedByString:@" "] objectAtIndex:0];
             if(![[self.subjects allKeys] containsObject:subject] ){
-                if([subject isEqualToString:@";"])
+                if([subject isEqualToString:@"Empty"])
                     [self.subjects setObject:[UIColor whiteColor] forKey:subject];
                 else
                 {

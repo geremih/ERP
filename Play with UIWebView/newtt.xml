@@ -12,8 +12,7 @@
                 <td>
                     <form name="frm" action="secwiseview.jsp?action=first" method=
                         "post" id="frm">
-                        <center><font color="#000099"><b>Your TimeTable for SPRING
-                            2012-2013</b></font></center>
+                        
                         <table>
                             <tr>
                                 <td>

@@ -16,4 +16,5 @@
 -(NSDictionary *) getTimeTableDictionaryfromHTML:(NSString *) html;
 -(int) valueOfElement: (CXMLNode *) node forAttrib:(NSString *) attrib;
 -(NSString *) normalizeHTML:(NSString *) html;
+-(NSString *) repairHTML:(NSString *) html;
 @end
