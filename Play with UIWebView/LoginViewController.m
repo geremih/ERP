@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.navigationController setNavigationBarHidden:YES];
     [self hideSecretQuestonRelatedStuff];
 
     
@@ -75,17 +75,25 @@
 - (IBAction)logInPressed:(id)sender {
     
     
-    
-
+    [self.answerText resignFirstResponder];
     [self.view setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
     self.webHandler = [[WebHandler alloc] init];
 
-   self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
-    [self performSegueWithIdentifier:@"SendToGrid" sender:self];
-
+    dispatch_queue_t DownloadQueue = dispatch_queue_create("get secret question", NULL) ;
     
- 
+    dispatch_async( DownloadQueue , ^{
+   self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+    [self performSegueWithIdentifier:@"SendToGrid" sender:self];
+        
+        
+    });
+});
+
+dispatch_release(DownloadQueue);
+
 }
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {

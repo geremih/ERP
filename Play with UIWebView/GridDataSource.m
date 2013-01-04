@@ -144,6 +144,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     A3GridTableViewCell *cell;
     
     NSString * subject = [ [self.timetable objectForKey:[self.days objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    
+    if (indexPath.section == 0)
+    {
+        
+        NSError *error = NULL;
+        NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"\n" options:NSRegularExpressionCaseInsensitive error:&error];
+        
+        subject= [regex stringByReplacingMatchesInString:subject options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, subject.length) withTemplate:@""];
+        
+    }
     cell = [gridTableView dequeueReusableCellWithIdentifier:@"cellID"] ;
     
     if (!cell) {
@@ -163,6 +173,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if(indexPath.section == 0)
     {
         cell.backgroundColor = UIColorFromRGB(0x4169E1);
+        
     }
     else{
         
@@ -172,7 +183,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
     
     //remove stupid semicolons
-    if([[subject substringFromIndex:[subject length] -1] isEqualToString:@";"])
+    if([subject  isEqualToString:@"Empty"])
     {
         subject = @"";
     }
