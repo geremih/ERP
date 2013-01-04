@@ -17,21 +17,18 @@
 
 @implementation GridViewController
 
-@synthesize webHandler = _webHandler , myParser = _myParser, gridTableView =_gridTableView , myDataSource = _myDataSource , html = _html;
+@synthesize myParser = _myParser, gridTableView =_gridTableView , myDataSource = _myDataSource , html = _html , timetable = _timetable;
 - (void)viewDidLoad
 {
     
-    self.webHandler = [[WebHandler alloc ] init];
-    [super viewDidLoad];
-   self.html =  [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
-   // NSLog(self.html);
+ 
     self.myParser = [[Parser alloc]init   ];
+    self.timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
     
  //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
 
-    //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"test.xml"];
 
-  NSDictionary * timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
+  
     
     
     //Grid View
@@ -40,7 +37,7 @@
     self.gridTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
     self.myDataSource = [[GridDataSource alloc] init];
-[self.myDataSource displayGridUsingDictionary:timetable];
+[self.myDataSource displayGridUsingDictionary:self.timetable];
 
     // set datasource and delegate
     self.gridTableView.dataSource = self.myDataSource;

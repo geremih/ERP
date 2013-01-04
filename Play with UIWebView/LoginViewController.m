@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-
+#import "GridViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -15,7 +15,7 @@
 @implementation LoginViewController
 
 
-@synthesize rollNumber , password , secretQuestion , answerText,activityIndicator ,viewWeb , webHandler , questionid ,reach = _reach;
+@synthesize rollNumber , password , secretQuestion , answerText,activityIndicator ,webHandler , questionid ,reach = _reach, html = _html   ;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,8 +53,7 @@
     
     [self hideSecretQuestonRelatedStuff];
 
-    self.webHandler = [[WebHandler alloc] init];
-    [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
@@ -80,13 +79,13 @@
 
     [self.view setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
+    self.webHandler = [[WebHandler alloc] init];
+
+   self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
+    [self performSegueWithIdentifier:@"SendToGrid" sender:self];
+
     
-    [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
-    //NSString * html = [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"pass" andSecretAnswer:@"ans"];
-    
-    self.viewWeb.hidden = NO;
-    
-    
+ 
 }
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {
@@ -153,6 +152,18 @@
         [alertView dismissWithClickedButtonIndex:-1 animated:YES]   ;
     }
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ( [segue.identifier isEqualToString:@"SendToGrid"])
+    {
+        GridViewController *newcontroller = segue.destinationViewController;
+        
+        newcontroller.html =  self.html;
+        
+    }
+
 }
 
 @end

@@ -8,22 +8,16 @@
 
 #import "WebHandler.h"
 
+
+@implementation NSURLRequest (NSURLRequestWithIgnoreSSL)
++(BOOL)allowsAnyHTTPSCertificateForHost:(NSString*)host
+{
+    return YES;
+}
+@end
+
 @implementation WebHandler
 @synthesize html = _html , sessionID =_sessionID , viewWeb = _viewWeb , cookieJar = _cookieJar , myParser = _myParser , userid = _userid, password = _password, answer= _answer, questionid = _questionid , DownloadQueue , ssoToken;
-
-
--(id)init{
-    
-    self = [super init];
-    
-    if(self){
-        
-        self.cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-        return self;
-    }    
-    return nil;
-}
-
 
 
 -(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password andSecretAnswer:(NSString *) answer forQuestion:(NSString *) questionid{
@@ -35,7 +29,6 @@
    
     [self getTimetable];
 
-   // NSLog(self.html);
     return self.html;
 }
 
@@ -98,7 +91,7 @@
         
         self.sessionID = [self getValuefromHTML:response forElement:@"sessionToken"];
         self.ssoToken = [self getValuefromHTML:response forElement:@"ssoToken"];
-        NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
+        //NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
 
         NSLog(@"Loaded Login");
 
@@ -125,7 +118,7 @@
         NSString *response = [postRequest responseString];
         //self.sessionID = [self getValuefromHTML:response forElement:@"sessionToken"];
         //self.ssoToken = [self getValuefromHTML:response forElement:@"ssoToken"];
-        NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
+       // NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
 
         NSLog(@"Loaded Welcome");
 
@@ -150,7 +143,7 @@
         NSString *response = [postRequest responseString];
         
         NSLog(@"Loaded TimeTable");
-        NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
+        //NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
 
 
         

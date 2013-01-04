@@ -19,10 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *secretQuestion;
 @property (weak, nonatomic) IBOutlet UITextField *answerText;
 @property (strong, nonatomic) NSString * questionid;
-
+@property (strong, nonatomic) NSString * html;
 @property (strong, nonatomic) Reachability *reach;
 
-@property (weak, nonatomic) IBOutlet UIWebView *viewWeb;
 @property (strong , nonatomic) WebHandler * webHandler;
 -(void) hideSecretQuestonRelatedStuff;
 -(void) showSecretQuestonRelatedStuff;

@@ -13,10 +13,9 @@
 #import "GridDataSource.h"
 
 @interface GridViewController : UIViewController <UIWebViewDelegate,NSURLConnectionDelegate>
-@property (strong , nonatomic) WebHandler * webHandler;
 @property (strong,nonatomic) Parser * myParser;
 @property (strong, nonatomic) NSString * html;
-
+@property ( strong ,nonatomic) NSDictionary * timetable;
 @property (strong , nonatomic)  A3GridTableView *gridTableView;
 @property (strong, nonatomic) GridDataSource * myDataSource;
 @end
