@@ -17,29 +17,25 @@
 
 @implementation GridViewController
 
-@synthesize viewWeb = _viewWeb ,webHandler = _webHandler , myParser = _myParser, gridTableView =_gridTableView , myDataSource = _myDataSource;
+@synthesize webHandler = _webHandler , myParser = _myParser, gridTableView =_gridTableView , myDataSource = _myDataSource , html = _html;
 - (void)viewDidLoad
 {
+    
+    self.webHandler = [[WebHandler alloc ] init];
     [super viewDidLoad];
-    self.webHandler = [[WebHandler alloc] init];
-    self.webHandler.viewWeb = self.viewWeb;
-    self.viewWeb.delegate = self.webHandler;
-   NSString * html = [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
-    
-    
-    
+    self.html =  [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
+   // NSLog(self.html);
     self.myParser = [[Parser alloc]init   ];
     
- NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"erp1.xml"];
+ //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
 
     //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"test.xml"];
 
-  NSDictionary * timetable = [self.myParser getTimeTableDictionaryfromHTML:XMLPath ];
+  NSDictionary * timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
     
     
     //Grid View
     
-  [self.viewWeb removeFromSuperview];
     self.gridTableView = [[A3GridTableView alloc] initWithFrame:self.view.bounds];
     self.gridTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 

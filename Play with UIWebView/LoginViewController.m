@@ -50,13 +50,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.webHandler = [[WebHandler alloc] init];
-    self.webHandler.viewWeb = self.viewWeb;
-    self.viewWeb.delegate = self.webHandler;
-    self.viewWeb.hidden = YES;
+    
     [self hideSecretQuestonRelatedStuff];
 
-  
+    self.webHandler = [[WebHandler alloc] init];
+    [self.webHandler getTimeTableHTMLForUser:@"11CS30026" password:@"thedoctor" andSecretAnswer:@"green" forQuestion:@"U2"] ;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)

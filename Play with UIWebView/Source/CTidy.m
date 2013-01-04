@@ -28,8 +28,9 @@
 //  The views and conclusions contained in the software and documentation are those of the
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
-
 #define TOUCHXMLUSETIDY TRUE
+
+#ifdef TOUCHXMLUSETIDY
 
 #import "CTidy.h"
 
@@ -72,7 +73,7 @@ theResultCode = tidyOptSetBool(theTidyDocument, TidyForceOutput, YES);
 NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
 
 // Set encoding - same for input and output
-    theResultCode = tidySetInCharEncoding(theTidyDocument, encoding);
+theResultCode = tidySetInCharEncoding(theTidyDocument, encoding);
 NSAssert(theResultCode >= 0, @"tidySetInCharEncoding() should return 0");
 theResultCode = tidySetOutCharEncoding(theTidyDocument, encoding);
 NSAssert(theResultCode >= 0, @"tidySetOutCharEncoding() should return 0");
@@ -169,7 +170,7 @@ theResultCode = tidyOptSetBool(theTidyDocument, TidyForceOutput, YES);
 NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
 
 // Set encoding - same for input and output
-    theResultCode = tidySetInCharEncoding(theTidyDocument, encoding);
+theResultCode = tidySetInCharEncoding(theTidyDocument, encoding);
 NSAssert(theResultCode >= 0, @"tidySetInCharEncoding() should return 0");
 theResultCode = tidySetOutCharEncoding(theTidyDocument, encoding);
 NSAssert(theResultCode >= 0, @"tidySetOutCharEncoding() should return 0");
@@ -233,4 +234,4 @@ return(theString);
 
 @end
 
- /* TOUCHXMLUSETIDY */
+#endif /* TOUCHXMLUSETIDY */

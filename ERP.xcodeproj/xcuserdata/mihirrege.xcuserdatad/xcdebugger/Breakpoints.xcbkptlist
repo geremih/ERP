@@ -34,20 +34,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378313268.755529"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "18"
-         endingLineNumber = "18"
-         landmarkName = "-getTimeTableDictionaryfromHTML:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378314764.383076"
+         timestampString = "378973981.748595"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "20"
@@ -60,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378314764.383076"
+         timestampString = "378973981.748595"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "27"
-         endingLineNumber = "27"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
          landmarkName = "-getTimeTableDictionaryfromHTML:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +60,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378314764.383076"
+         timestampString = "378974792.208394"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
+         landmarkName = "-getTimeTableDictionaryfromHTML:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Play with UIWebView/Parser.m"
+         timestampString = "378974792.208394"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "-getTimeTableDictionaryfromHTML:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/LoginViewController.h"
-         timestampString = "378203526.91641"
+         timestampString = "378973981.748595"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
+         startingLineNumber = "31"
+         endingLineNumber = "31"
          landmarkName = "@interface LoginViewController"
          landmarkType = "2">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/LoginViewController.m"
-         timestampString = "378324180.369286"
+         timestampString = "378914990.507978"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-logInPressed:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/LoginViewController.h"
-         timestampString = "378203526.91641"
+         timestampString = "378973981.748595"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "27"
-         endingLineNumber = "27"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
          landmarkName = "-showSecretQuestonRelatedStuff"
          landmarkType = "4">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/LoginViewController.m"
-         timestampString = "378324180.369286"
+         timestampString = "378914990.507978"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
+         startingLineNumber = "150"
+         endingLineNumber = "150"
          landmarkName = "-alertView:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -202,25 +202,12 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325156.994613"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
-         landmarkName = "-webViewDidFinishLoad:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/Parser.m"
-         timestampString = "378314764.383076"
+         timestampString = "378974792.208394"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-getTimeTableDictionaryfromHTML:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,12 +216,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325835.014648"
+         timestampString = "378924282.143718"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
-         landmarkName = "-webViewDidFinishLoad:"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
+         landmarkName = "-requestForTimeTable"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -242,50 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325156.994613"
+         timestampString = "378921376.118904"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
-         landmarkName = "-webViewDidFinishLoad:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325156.994613"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
-         landmarkName = "-webViewDidFinishLoad:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325236.897352"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "-getTimeTableHTMLForUser:password:andSecretAnswer:forQuestion:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325676.78709"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
+         startingLineNumber = "11"
+         endingLineNumber = "11"
          landmarkName = "@implementation WebHandler"
          landmarkType = "3">
       </FileBreakpoint>
@@ -293,26 +241,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325770.724244"
+         filePath = "Play with UIWebView/Parser.m"
+         timestampString = "378973981.748595"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "@implementation WebHandler"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "378325772.01658"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
-         landmarkName = "-getValuefromHTML:forElement:"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "-getTimeTableDictionaryfromHTML:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

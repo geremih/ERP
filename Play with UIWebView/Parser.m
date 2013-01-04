@@ -7,6 +7,8 @@
 //
 
 #import "Parser.h"
+#define TOUCHXMLUSETIDY TRUE
+#import "CTidy.h"
 
 @implementation Parser
 
@@ -15,15 +17,25 @@
 
 -(NSDictionary *) getTimeTableDictionaryfromHTML:(NSString *)html  {
     
-    
-    NSData * XMLData =  [NSData dataWithContentsOfFile:html];
+    //self.html = html;
      self.html = [self normalizeHTML:html];
+    
+    CTidy * t = [CTidy tidy]; 
+    
+    
+
+    //NSLog(self.html);
+    NSString *XHTML = [t tidyString:self.html inputFormat:TidyFormat_HTML outputFormat:TidyFormat_XHTML encoding:"UTF8" diagnostics:nil error:nil];
+   
+    NSLog(XHTML);
+    NSData * XMLData =  [NSData dataWithContentsOfFile:XHTML];
+
     //NSData *XMLData = [self.html dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
     
     CXMLDocument *doc = [[CXMLDocument alloc] initWithData:XMLData options:0 error:nil];
     
     NSArray *nodes = NULL;
-    nodes = [doc nodesForXPath:@"/table/tbody/tr/td/form/table/tbody/tr/td/table/tbody/tr" error:nil];
+    nodes = [doc nodesForXPath:@"/html/body/table/tr/td/form/table/tr/td/table/tr/" error:nil];
    
     /*
      Algorithm
@@ -109,6 +121,9 @@
     regex = [NSRegularExpression regularExpressionWithPattern:@"<input.*?>" options:NSRegularExpressionCaseInsensitive error:&error];
     
     result = [regex stringByReplacingMatchesInString:result options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, result.length) withTemplate:@" "];
+    
+
+ 
     
     return result;
 

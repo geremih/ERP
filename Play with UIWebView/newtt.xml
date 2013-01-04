@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="generator" content=
+        "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.11), see www.w3.org" />
+        <title>Time Table View</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <form name="frm" action="secwiseview.jsp?action=first" method=
+                        "post" id="frm">
+                        <center><font color="#000099"><b>Your TimeTable for SPRING
+                            2012-2013</b></font></center>
+                        <table>
+                            <tr>
+                                <td>
+                                    <table border="1" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                Day Name</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                7:30:AM-8:25:AM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                8:30:AM-9:25:AM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                9:30:AM-10:25:AM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                10:30:AM-11:25:AM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                11:30:AM-12:25:PM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                1:30:PM-2:25:PM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                2:30:PM-3:25:PM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                3:30:PM-4:25:PM</td>
+                                            <td class="tableheader" nowrap="nowrap" style=
+                                                'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px'>
+                                                4:30:PM-5:25:PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td class='tableheader' valign='top' style=
+                                                'padding-top:5px;padding-bottom:5px' rowspan="1" colspan="1">
+                                                Mon</td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21002 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21002 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>MA20104 V1</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS20006 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>HS30066 Language Lab (New)</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="3"><b>CS29002 CSE-Hardware-Lab</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='tableheader' valign='top' style=
+                                                'padding-top:5px;padding-bottom:5px' rowspan="1" colspan="1">
+                                                Tue</td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS20006 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS20006 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>HS30066 Language Lab (New)</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>HS30066 Language Lab (New)</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21002 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="3"><b>CS29002 CSE-Hardware-Lab</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='tableheader' valign='top' style=
+                                                'padding-top:5px;padding-bottom:5px' rowspan="1" colspan="1">
+                                                Wed</td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>MA20104 V1</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>MA20104 V1</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21002 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21004 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='tableheader' valign='top' style=
+                                                'padding-top:5px;padding-bottom:5px' rowspan="1" colspan="1">
+                                                Thur</td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>HS30066 Language Lab (New)</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>MA20104 V1</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21004 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS20006 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td class='tableheader' valign='top' style=
+                                                'padding-top:5px;padding-bottom:5px' rowspan="1" colspan="1">
+                                                Fri</td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21004 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>CS21004 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="3"><b>CS29006 NR223</b></td>
+                                            <td align='center' style='padding-top:5px;padding-bottom:5px'
+                                                rowspan="1" colspan="1"><b>Empty</b></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

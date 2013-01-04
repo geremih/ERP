@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Parser.h"
-@interface WebHandler : NSObject <UIWebViewDelegate>
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+@interface WebHandler : NSObject <ASIHTTPRequestDelegate>
 @property (strong, nonatomic) NSString * html;
 @property    (strong, nonatomic) NSString * sessionID;
-@property (nonatomic) int requestCount;
+@property    (strong, nonatomic) NSString * ssoToken;
+
 @property (weak , nonatomic) IBOutlet UIWebView *viewWeb;
 @property (strong, nonatomic) NSHTTPCookieStorage *cookieJar;
 @property (strong,nonatomic) Parser * myParser;
@@ -24,11 +27,14 @@
 
 -(NSString *)getHtmlOfCurrentPage;
 -(NSString *)getValuefromHTML:(NSString *) html forElement:(NSString *) element;
--(NSURLRequest *) requestForHomePage;
--(NSURLRequest *) requestForLogin;
--(NSURLRequest *) requestForTimeTable;
--(NSURLRequest *) requestForTimeTableJSP;
+-(void) requestForHomePage;
+-(void) requestForLogin;
+-(void ) requestForTimeTable;
+-(void) requestForTimeTableJSP;
 -(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password andSecretAnswer:(NSString *) answer forQuestion:(NSString *) questionid;
+-(void) getTimetable;
+-(void) requestForWelcomePage;
+
 
 
 @end
