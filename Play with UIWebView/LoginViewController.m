@@ -37,9 +37,11 @@
         NSString *webData= [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
         NSLog(@"%@",webData);
         dispatch_async(dispatch_get_main_queue(), ^{
-    self.secretQuestion.text = [webData substringFromIndex:3];
-    self.questionid = [webData substringToIndex:2];
-    [self showSecretQuestonRelatedStuff];
+            
+                self.secretQuestion.text = [webData substringFromIndex:3];
+                self.questionid = [webData substringToIndex:2];
+                [self showSecretQuestonRelatedStuff];
+          
         });
     });
     
@@ -50,6 +52,16 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%@",prefs);
+    if([prefs integerForKey:@"LoggedIn"] ==1)
+    {
+        NSLog(@"He was logged in ");
+        self.timetable = [prefs objectForKey:@"TimeTable"];
+        [self performSegueWithIdentifier:@"SendToGrid" sender:self];
+        
+    }
     [self.navigationController setDelegate:self];
    
     [self hideSecretQuestonRelatedStuff];
@@ -83,6 +95,19 @@
     dispatch_async( DownloadQueue , ^{
         self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
         
+        if([self.html isEqualToString:@"Error"])
+        {
+            NSLog(@"ERRROR!!");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self setViewToDefault];
+                UIAlertView *alert=  [[UIAlertView alloc] initWithTitle:@"Error" message:@"Incorrect Credententials" delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles: nil];;
+                [alert show];
+            });
+            
+        }
+        
+        else {
         self.myParser = [[Parser alloc]init   ];
         self.timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
         
@@ -91,10 +116,10 @@
             [self performSegueWithIdentifier:@"SendToGrid" sender:self];
             
         });
-        
+        }
     });
-
 dispatch_release(DownloadQueue);
+    
 
 }
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;

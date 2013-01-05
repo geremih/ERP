@@ -32,7 +32,7 @@
 -(void ) requestForTimeTable;
 -(void) requestForTimeTableJSP;
 -(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password andSecretAnswer:(NSString *) answer forQuestion:(NSString *) questionid;
--(void) getTimetable;
+-(NSString *) getTimetable;
 -(void) requestForWelcomePage;
 
 

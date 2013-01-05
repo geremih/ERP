@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/LoginViewController.m"
-         timestampString = "379066171.088362"
+         timestampString = "379071737.678722"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "188"
-         endingLineNumber = "188"
+         startingLineNumber = "206"
+         endingLineNumber = "206"
          landmarkName = "-alertView:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/WebHandler.m"
-         timestampString = "379009861.276649"
+         timestampString = "379066958.997888"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-getValuefromHTML:forElement:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,24 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Play with UIWebView/LoginViewController.m"
-         timestampString = "378984867.997357"
+         timestampString = "379071737.678722"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
-         landmarkName = "-getSecurityQuestion:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Play with UIWebView/LoginViewController.m"
-         timestampString = "379066171.088362"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "201"
-         endingLineNumber = "201">
+         startingLineNumber = "219"
+         endingLineNumber = "219">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

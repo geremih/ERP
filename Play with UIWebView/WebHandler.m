@@ -27,19 +27,23 @@
     self.answer = answer;
     self.questionid = questionid;
     
-    [self getTimetable];
     
-    return self.html;
+    return     [self getTimetable];
+
 }
 
--(void) getTimetable{
+-(NSString *) getTimetable{
     
     NSLog(@"Starting Request");
     [self requestForHomePage];
     [self requestForLogin];
+    if(![self.html isEqualToString:@"Error"])
+    {
     [self requestForWelcomePage];
     [self requestForTimeTable];
     [self requestForTimeTableJSP];
+    }
+    return self.html;
     NSLog(@"Retrung")   ;
     
 }
@@ -81,6 +85,15 @@
     
     if (!error) {
         NSString *response = [postRequest responseString];
+        
+        NSLog(response);
+        if ([response  rangeOfString:@"Error in accessing account!"].location == NSNotFound) {
+            NSLog(@"Good to go");
+
+        } else {
+            NSLog(@"Wrong password");
+            self.html=@"Error";
+        }
         self.sessionID = [self getValuefromHTML:response forElement:@"sessionToken"];
         self.ssoToken = [self getValuefromHTML:response forElement:@"ssoToken"];
         NSLog(@"Loaded Login");

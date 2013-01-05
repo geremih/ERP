@@ -18,6 +18,13 @@
 - (void)viewDidLoad
 {
 
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:self.timetable forKey:@"TimeTable"];
+    
+    // saving an NSInteger
+    [prefs setInteger:1 forKey:@"LoggedIn"];
+    [prefs synchronize];
+    
     //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
     
     //Grid View
@@ -51,7 +58,11 @@
 -(void) logout{
     
     NSLog(@"logout") ;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
     [self.navigationController popViewControllerAnimated:YES];
+    [prefs setInteger:0 forKey:@"LoggedIn"];
+    [prefs synchronize];
     
 }
 - (void)didReceiveMemoryWarning

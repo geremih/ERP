@@ -196,7 +196,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         aButton.frame = headerCell.frame;
         [aButton setTitle:@"Logout" forState:UIControlStateNormal];
         [aButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
-        aButton.titleLabel.font = [headerCell.titleLabel.font fontWithSize:15];
+        aButton.titleLabel.font = [headerCell.titleLabel.font fontWithSize:13];
         [aButton addTarget:aGridTableView.delegate action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
         [headerCell setContentView:aButton];
     }
