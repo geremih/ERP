@@ -11,11 +11,13 @@
 #import "Parser.h"
 #import "A3GridTableView.h"
 #import "GridDataSource.h"
+#import "LoginViewController.h"
+@interface GridViewController : UIViewController <A3GridTableViewDelegate>
 
-@interface GridViewController : UIViewController <UIWebViewDelegate,NSURLConnectionDelegate>
-@property (strong,nonatomic) Parser * myParser;
-@property (strong, nonatomic) NSString * html;
+
 @property ( strong ,nonatomic) NSDictionary * timetable;
 @property (strong , nonatomic)  A3GridTableView *gridTableView;
 @property (strong, nonatomic) GridDataSource * myDataSource;
+-(void)logout;
+
 @end

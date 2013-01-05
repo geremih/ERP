@@ -18,4 +18,5 @@
 @property (strong, nonatomic) NSArray * days;
 -(void) displayGridUsingDictionary:(NSDictionary *) timetable;
 -(UIColor *) randomColor;
+
 @end

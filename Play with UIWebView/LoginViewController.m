@@ -15,7 +15,7 @@
 @implementation LoginViewController
 
 
-@synthesize rollNumber , password , secretQuestion , answerText,activityIndicator ,webHandler , questionid ,reach = _reach, html = _html   ;
+@synthesize myParser = _myParser, rollNumber , password , secretQuestion , answerText,activityIndicator ,webHandler , questionid ,reach = _reach, html = _html   ;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +50,8 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController setDelegate:self];
+   
     [self hideSecretQuestonRelatedStuff];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -75,17 +77,22 @@
     [self.view setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
     self.webHandler = [[WebHandler alloc] init];
-
-    dispatch_queue_t DownloadQueue = dispatch_queue_create("get secret question", NULL) ;
+    
+    dispatch_queue_t DownloadQueue = dispatch_queue_create("get timetable", NULL) ;
     
     dispatch_async( DownloadQueue , ^{
-   self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-    [self performSegueWithIdentifier:@"SendToGrid" sender:self];
+        self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
         
+        self.myParser = [[Parser alloc]init   ];
+        self.timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self performSegueWithIdentifier:@"SendToGrid" sender:self];
+            
         });
-});
+        
+    });
 
 dispatch_release(DownloadQueue);
 
@@ -129,6 +136,17 @@ dispatch_release(DownloadQueue);
     
 }
 
+-(void)setViewToDefault{
+    
+    [self.view setUserInteractionEnabled:YES];
+    [self.activityIndicator stopAnimating];
+    self.rollNumber.text = @"";
+    self.password.text = @"";
+    self.answerText.text = @"";
+    [self hideSecretQuestonRelatedStuff];
+    
+}
+
 -(void)reachabilityChanged:(NSNotification*)note
 {
     Reachability * reach = [note object];
@@ -144,7 +162,13 @@ dispatch_release(DownloadQueue);
 }
 
 
-
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    
+    if([viewController isKindOfClass:[LoginViewController class]]){
+        
+        [self setViewToDefault];
+    }
+}
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -161,7 +185,7 @@ dispatch_release(DownloadQueue);
     if ( [segue.identifier isEqualToString:@"SendToGrid"])
     {
         GridViewController *newcontroller = segue.destinationViewController;
-        newcontroller.html =  self.html;
+        newcontroller.timetable =  self.timetable;
     }
 }
 

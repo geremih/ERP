@@ -11,7 +11,7 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "WebHandler.h"
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate ,UIAlertViewDelegate >
+@interface LoginViewController : UIViewController <UITextFieldDelegate ,UIAlertViewDelegate ,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *rollNumber;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -21,10 +21,12 @@
 @property (strong, nonatomic) NSString * questionid;
 @property (strong, nonatomic) NSString * html;
 @property (strong, nonatomic) Reachability *reach;
+@property (strong,nonatomic) Parser * myParser;
+@property ( strong ,nonatomic) NSDictionary * timetable;
 
 @property (strong , nonatomic) WebHandler * webHandler;
 -(void) hideSecretQuestonRelatedStuff;
 -(void) showSecretQuestonRelatedStuff;
-
+-(void)setViewToDefault;
 -(void)reachabilityChanged:(NSNotification*)note;
 @end

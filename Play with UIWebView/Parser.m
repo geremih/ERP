@@ -17,28 +17,15 @@
 
 -(NSDictionary *) getTimeTableDictionaryfromHTML:(NSString *)html  {
     
-    self.html = html;
-    NSLog(self.html);
     self.html = [self normalizeHTML:html];
-
     CTidy * t = [CTidy tidy];
-    
-    
-
-    //NSLog(self.html);
     NSString *XHTML = [t tidyString:self.html inputFormat:TidyFormat_HTML outputFormat:TidyFormat_XHTML encoding:"UTF8" diagnostics:nil error:nil];
-   
     XHTML = [self repairHTML:XHTML];
-   // NSLog(XHTML);
-   //NSData * XMLData =  [NSData dataWithContentsOfFile:html];
-
-   NSData *XMLData = [XHTML dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
-    
+    NSData *XMLData = [XHTML dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
     CXMLDocument *doc = [[CXMLDocument alloc] initWithData:XMLData options:0 error:nil];
-    
     NSArray *nodes = NULL;
     nodes = [doc nodesForXPath:@"/html/body/table/tr/td/form/table/tr/td/table/tr" error:nil];
-   
+    
     /*
      Algorithm
      1. Get the node
@@ -109,27 +96,18 @@
 
 -(NSString *) normalizeHTML:(NSString *)html
 {
+
     
-    NSError *error = NULL;
-    NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"<br>" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"&nbsp;" options:NSRegularExpressionCaseInsensitive error:nil];
     
-    NSString * result = [regex stringByReplacingMatchesInString:html options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, html.length) withTemplate:@" "];
-    
-    regex = [NSRegularExpression regularExpressionWithPattern:@"&nbsp;" options:NSRegularExpressionCaseInsensitive error:&error];
-    
-    result = [regex stringByReplacingMatchesInString:result options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, result.length) withTemplate:@"Empty"];
+    NSString * result = [regex stringByReplacingMatchesInString:html options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, html.length) withTemplate:@"Empty"];
     
     
-    regex = [NSRegularExpression regularExpressionWithPattern:@"<input.*?>" options:NSRegularExpressionCaseInsensitive error:&error];
+    regex = [NSRegularExpression regularExpressionWithPattern:@"<input.*?>" options:NSRegularExpressionCaseInsensitive error:nil];
     
     result = [regex stringByReplacingMatchesInString:result options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, result.length) withTemplate:@" "];
-    
 
- 
-    
     return result;
-
-    
 }
 
 -(NSString *) repairHTML:(NSString *)html
@@ -139,13 +117,7 @@
     NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"<html.*?>" options:NSRegularExpressionCaseInsensitive error:&error];
     
     NSString * result = [regex stringByReplacingMatchesInString:html options:NSRegularExpressionCaseInsensitive range:NSMakeRange(0, html.length) withTemplate:@"<html> "];
-     
-    
-    
-
-    return result;
-    
-    
+     return result;
 }
 
 -(int) valueOfElement: (CXMLNode *) node forAttrib: (NSString *) attrib{

@@ -56,38 +56,21 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.timetable =timetable;
     self.subjects = [[NSMutableDictionary alloc] initWithCapacity:0 ];
     self.colorDict = [[NSMutableArray alloc] initWithCapacity:0 ];
-    
-    //old
-    
-    
-    //new
     [self.colorDict addObject:UIColorFromRGB(0xEEE9E9)];
     [self.colorDict addObject:UIColorFromRGB(0xFFE4C4)];
     [self.colorDict addObject:UIColorFromRGB(0xAFEEEE)];
     [self.colorDict addObject:UIColorFromRGB(0x00BFFF)];
     [self.colorDict addObject:UIColorFromRGB(0x7FFFD4)];
-    [self.colorDict addObject:UIColorFromRGB(0xFFC0CB)];  //new
-    
-    
+    [self.colorDict addObject:UIColorFromRGB(0xFFC0CB)];  
     [self.colorDict addObject:UIColorFromRGB(0xFFFACD)];
-      
     [self.colorDict addObject:UIColorFromRGB(0x00FF7F)];
     [self.colorDict addObject:UIColorFromRGB(0xDB7093)];
     [self.colorDict addObject:UIColorFromRGB(0x48D1CC)];
     [self.colorDict addObject:UIColorFromRGB(0xEEDD82)];
-
-    
     [self.colorDict addObject:UIColorFromRGB(0xBC8F8F)];
     [self.colorDict addObject:UIColorFromRGB(0xFFA07A)];
     [self.colorDict addObject:UIColorFromRGB(0xCDC8B1)];
-    
-    
-    
-    
-    
 
-    
-    
     for(NSArray * key in self.timetable)
     {
         if(![[self.timetable objectForKey:key] containsObject:@"\n7:30:AM-8:25:AM"]){
@@ -198,11 +181,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     if (!headerCell) {
         headerCell = [[A3GridTableViewCell alloc] initWithReuseIdentifier:@"headerID"];
-        
-        
-        
-        
-        
         headerCell.titleLabel.textAlignment = NSTextAlignmentCenter;
         headerCell.backgroundView.backgroundColor = UIColorFromRGB(0X87CEFA);
         [headerCell.layer setBorderWidth:1];
@@ -213,7 +191,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     if(section ==0)
     {
-        headerCell.backgroundView.backgroundColor = [UIColor whiteColor];
+        //headerCell.backgroundView.backgroundColor = [UIColor whiteColor];
+        UIButton *aButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        aButton.frame = headerCell.frame;
+        [aButton setTitle:@"Logout" forState:UIControlStateNormal];
+        [aButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
+        aButton.titleLabel.font = [headerCell.titleLabel.font fontWithSize:15];
+        [aButton addTarget:aGridTableView.delegate action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+        [headerCell setContentView:aButton];
     }
     else
         headerCell.titleLabel.text = [self.days objectAtIndex:section] ;
@@ -221,6 +206,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     return headerCell;
 }
+
+
 
 - (CGFloat)heightForHeadersInA3GridTableView:(A3GridTableView *)aGridTableView{
     CGFloat height = aGridTableView.frame.size.height;

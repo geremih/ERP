@@ -14,26 +14,24 @@
 
 @implementation GridViewController
 
-@synthesize myParser = _myParser, gridTableView =_gridTableView , myDataSource = _myDataSource , html = _html , timetable = _timetable;
+@synthesize  gridTableView =_gridTableView , myDataSource = _myDataSource , timetable = _timetable;
 - (void)viewDidLoad
 {
-    self.myParser = [[Parser alloc]init   ];
-    self.timetable = [self.myParser getTimeTableDictionaryfromHTML:self.html];
-    
+
     //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
     
     //Grid View
-    
     self.gridTableView = [[A3GridTableView alloc] initWithFrame:self.view.bounds];
     self.gridTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     self.myDataSource = [[GridDataSource alloc] init];
-    [self.myDataSource displayGridUsingDictionary:self.timetable];
     
     // set datasource and delegate
+    self.gridTableView.delegate = self;
+
+    [self.myDataSource displayGridUsingDictionary:self.timetable];
+
     self.gridTableView.dataSource = self.myDataSource;
-    self.gridTableView.delegate = self.myDataSource;
-    
     // set paging
     self.gridTableView.pagingPosition = A3GridTableViewCellAlignmentCenter;
     self.gridTableView.gridTableViewPagingEnabled = YES;
@@ -49,6 +47,13 @@
 }
 
 
+
+-(void) logout{
+    
+    NSLog(@"logout") ;
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
