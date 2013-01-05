@@ -28,8 +28,7 @@
 
 - (IBAction)getSecurityQuestion:(id)sender {
     
-    //Using multithreading
-    
+    //Gets security question using another thread
     dispatch_queue_t DownloadQueue = dispatch_queue_create("get secret question", NULL) ;
     
     dispatch_async( DownloadQueue , ^{
@@ -53,8 +52,8 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
     
+    //Get user defaults and push if already set
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@",prefs);
     if([prefs integerForKey:@"LoggedIn"] ==1)
     {
         NSLog(@"He was logged in ");
@@ -63,9 +62,9 @@
         
     }
     [self.navigationController setDelegate:self];
-   
     [self hideSecretQuestonRelatedStuff];
 
+    //Notification for reachability
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
                                                  name:kReachabilityChangedNotification
@@ -85,6 +84,8 @@
 
 - (IBAction)logInPressed:(id)sender {
     
+    //Called when login is pressed
+    
     [self.answerText resignFirstResponder];
     [self.view setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
@@ -97,6 +98,7 @@
         
         if([self.html isEqualToString:@"Error"])
         {
+            
             NSLog(@"ERRROR!!");
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -124,6 +126,7 @@ dispatch_release(DownloadQueue);
 }
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {
+    //Function to cycle text fields when next is pressed
     NSInteger nextTag = textField.tag + 1;
     // Try to find next responder
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
@@ -189,6 +192,7 @@ dispatch_release(DownloadQueue);
 
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
+    //Is called when user logs out and view pushes back in
     if([viewController isKindOfClass:[LoginViewController class]]){
         
         [self setViewToDefault];

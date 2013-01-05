@@ -91,8 +91,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         }
     }
     
+    
+    /*
+     Datastructure for subject
+     Each subject will be a dictionary
+     */
+    
     NSLog(@"%@",self.subjects);
 }
+
+
+
 
 - (NSInteger)numberOfSectionsInA3GridTableView:(A3GridTableView *) gridTableView
 {
@@ -162,7 +171,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         
     }
     
-    //remove stupid semicolons
     if([subject  isEqualToString:@"Empty"])
     {
         subject = @"";

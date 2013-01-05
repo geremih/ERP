@@ -17,50 +17,40 @@
 @synthesize  gridTableView =_gridTableView , myDataSource = _myDataSource , timetable = _timetable;
 - (void)viewDidLoad
 {
-
+    //Checks if already logged in, if yes shows the timetable
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject:self.timetable forKey:@"TimeTable"];
-    
-    // saving an NSInteger
     [prefs setInteger:1 forKey:@"LoggedIn"];
     [prefs synchronize];
     
-    //NSString *XMLPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"newtt.xml"];
     
     //Grid View
     self.gridTableView = [[A3GridTableView alloc] initWithFrame:self.view.bounds];
     self.gridTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
     self.myDataSource = [[GridDataSource alloc] init];
-    
     // set datasource and delegate
     self.gridTableView.delegate = self;
-
     [self.myDataSource displayGridUsingDictionary:self.timetable];
-
     self.gridTableView.dataSource = self.myDataSource;
     // set paging
     self.gridTableView.pagingPosition = A3GridTableViewCellAlignmentCenter;
     self.gridTableView.gridTableViewPagingEnabled = YES;
     self.gridTableView.backgroundColor = [UIColor whiteColor];
-    
     // scrolling
     self.gridTableView.directionalLockEnabled = YES;
-    
     // add as subview
     [self.view addSubview:self.gridTableView];
-    //[self.view sendSubviewToBack:self.gridTableView];
     
 }
 
 
 
 -(void) logout{
-    
+    //Function is called when logout button is pressed
     NSLog(@"logout") ;
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-
     [self.navigationController popViewControllerAnimated:YES];
+    //Update NSUserDefaults
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setInteger:0 forKey:@"LoggedIn"];
     [prefs synchronize];
     
