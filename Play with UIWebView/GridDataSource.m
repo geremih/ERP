@@ -91,16 +91,50 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         }
     }
     
+   self.timetable =  [self parseTimeTable:self.timetable];
+    
     
     /*
      Datastructure for subject
      Each subject will be a dictionary
      */
     
-    NSLog(@"%@",self.subjects);
 }
 
-
+-(NSDictionary *) parseTimeTable:(NSDictionary *)timetable  {
+    
+    NSMutableDictionary * parsedTT = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
+    for(NSArray * key in timetable)
+    {
+        NSArray * dayLectures = [timetable objectForKey:key];
+        
+        int i=0;
+        int j;
+        NSMutableArray * combinedDayLectures = [[NSMutableArray alloc] initWithCapacity:0];
+        while(i<dayLectures.count)
+        {
+            
+            NSMutableDictionary * lecture = [[NSMutableDictionary alloc] initWithCapacity:0];
+            
+            j=1;
+            while (i+j<dayLectures.count &&[[ dayLectures objectAtIndex:i] isEqualToString:[dayLectures objectAtIndex:i+j]])
+                j++;
+            
+            
+            [lecture setObject:[dayLectures objectAtIndex:i] forKey:@"LectureName"];
+            [lecture setObject:[NSNumber numberWithInt:j] forKey:@"Duration"];
+            
+            i=i+j;
+            
+            [combinedDayLectures addObject:lecture];
+        }
+        [parsedTT setObject:combinedDayLectures forKey:key];
+        
+    }
+    NSLog(@"%@", parsedTT);
+    return parsedTT;
+}
 
 
 - (NSInteger)numberOfSectionsInA3GridTableView:(A3GridTableView *) gridTableView
@@ -118,21 +152,21 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return width/6;}
 
 - (CGFloat)A3GridTableView:(A3GridTableView *) gridTableView heightForRowAtIndexPath:(NSIndexPath *) indexPath{
-    
+     NSNumber * multiplier = [[ [self.timetable objectForKey:[self.days objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row] objectForKey:@"Duration"];
     CGFloat height = gridTableView.frame.size.height;
-    return height/10;
+    return height/10*multiplier.intValue;
     
 }
 
 
 
-- (A3GridTableViewCell *)A3GridTableView:(A3GridTableView *)gridTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (A3GridTableViewCell *)A3GridTableView:(A3GridTableView *)gridTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{ 
     
     
     A3GridTableViewCell *cell;
     
-    NSString * subject = [ [self.timetable objectForKey:[self.days objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    
+    NSString * subject = [[ [self.timetable objectForKey:[self.days objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row] objectForKey:@"LectureName"];
+  
     if (indexPath.section == 0)
     {
         
@@ -152,8 +186,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         cell.layer.masksToBounds = YES;
         [cell.layer setBorderColor:[UIColor whiteColor].CGColor  ];
         cell.titleLabel.textAlignment = NSTextAlignmentCenter;
-        cell.titleLabel.numberOfLines =2;
-        cell.titleLabel.font = [cell.titleLabel.font fontWithSize:10];
+        cell.titleLabel.numberOfLines =5;
+        cell.titleLabel.font = [cell.titleLabel.font fontWithSize:9];
         
         
     }
@@ -162,7 +196,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     {
 
         cell.backgroundColor = UIColorFromRGB(0x4169E1);
-        
+        cell.titleLabel.numberOfLines =2;
     }
     else{
         

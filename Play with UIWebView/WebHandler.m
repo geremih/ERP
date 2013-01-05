@@ -86,7 +86,6 @@
     if (!error) {
         NSString *response = [postRequest responseString];
         
-        NSLog(response);
         if ([response  rangeOfString:@"Error in accessing account!"].location == NSNotFound) {
             NSLog(@"Good to go");
 
