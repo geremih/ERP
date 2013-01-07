@@ -3,5 +3,5 @@ ERP
 
 ERP iOS app
 
-![Alt text](Screenshot2.PNG )
+![Alt text](https://github.com/geremih/ERP/blob/integrate/Screenshot1.PNG)
 
