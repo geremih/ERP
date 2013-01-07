@@ -3,6 +3,8 @@ ERP
 
 ERP iOS app
 
-![Alt text](https://raw.github.com/geremih/ERP/integrate/Screenshot2.PNG)
+![Login Page](https://raw.github.com/geremih/ERP/integrate/Screenshot1.PNG)
 
-![Alt text](https://raw.github.com/geremih/ERP/integrate/Screenshot1.PNG)
+
+![TimeTable View](https://raw.github.com/geremih/ERP/integrate/Screenshot2.PNG)
+
