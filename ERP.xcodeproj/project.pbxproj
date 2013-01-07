@@ -63,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1314D264169AFF8200CAFCBB /* Screenshot1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot1.PNG; sourceTree = "<group>"; };
+		1314D265169AFF8200CAFCBB /* Screenshot2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot2.PNG; sourceTree = "<group>"; };
 		13AE4564168A463300C59A0F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		13CAA0001695C1F600665116 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		13CAA0011695C1F600665116 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
@@ -279,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				13E365FA1684F6E90096D574 /* c983e310c178c52915d366a510c79f28.png */,
+				1314D264169AFF8200CAFCBB /* Screenshot1.PNG */,
+				1314D265169AFF8200CAFCBB /* Screenshot2.PNG */,
 				13AE4564168A463300C59A0F /* logo.png */,
 				13E365F81684F6E00096D574 /* 6e965d8b679c476e5b9817e868b1a142.png */,
 				13F616F0167F54550068F585 /* Play with UIWebView */,
