@@ -84,6 +84,10 @@
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="5Xs-hQ-OPH">
+                                <rect key="frame" x="150" y="233" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.32156862749999998" green="0.40000000000000002" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     </scrollView>
@@ -92,6 +96,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="yTc-Ko-1Y5" id="ezx-27-80a"/>
                         <outlet property="answerText" destination="efH-sS-2mq" id="wjz-lL-Ysu"/>
+                        <outlet property="gettingQuestionIndicator" destination="5Xs-hQ-OPH" id="34I-Bq-2Bt"/>
                         <outlet property="password" destination="1eZ-BO-m2a" id="Vp4-Jo-OlL"/>
                         <outlet property="rollNumber" destination="DWp-vZ-b83" id="Ok6-xH-tl5"/>
                         <outlet property="secretQuestion" destination="VLp-qL-TAS" id="Jg1-t4-sSw"/>

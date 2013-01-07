@@ -139,7 +139,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (NSInteger)numberOfSectionsInA3GridTableView:(A3GridTableView *) gridTableView
 {
+   if([self.timetable count])
     return [self.timetable count];
+    else
+        return 1;
 }
 
 - (NSInteger)A3GridTableView:(A3GridTableView *) tableView numberOfRowsInSection:(NSInteger) section{

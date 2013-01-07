@@ -19,11 +19,15 @@
 {
     //Checks if already logged in, if yes shows the timetable
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
     [prefs setObject:self.timetable forKey:@"TimeTable"];
     [prefs setInteger:1 forKey:@"LoggedIn"];
     [prefs synchronize];
     
-    
+    if([self.timetable isEqualToDictionary:[[NSDictionary alloc] init]])
+        {
+            [self logout];
+        }
     //Grid View
     self.gridTableView = [[A3GridTableView alloc] initWithFrame:self.view.bounds];
     self.gridTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

@@ -23,6 +23,7 @@
 @property (strong, nonatomic) Reachability *reach;
 @property (strong,nonatomic) Parser * myParser;
 @property ( strong ,nonatomic) NSDictionary * timetable;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *gettingQuestionIndicator;
 
 @property (strong , nonatomic) WebHandler * webHandler;
 -(void) hideSecretQuestonRelatedStuff;

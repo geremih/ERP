@@ -27,20 +27,28 @@
 }
 
 - (IBAction)getSecurityQuestion:(id)sender {
-    
+    [self.gettingQuestionIndicator startAnimating];
+    [self hideSecretQuestonRelatedStuff];
     //Gets security question using another thread
     dispatch_queue_t DownloadQueue = dispatch_queue_create("get secret question", NULL) ;
     
     dispatch_async( DownloadQueue , ^{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://erp.iitkgp.ernet.in/SSOAdministration/getSecurityQuestion.htm?user_id=%@&rand_id=1",self.rollNumber.text]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://erp.iitkgp.ernet.in/SSOAdministration/getSecurityQuestion.htm?user_id=%@&rand_id=1",self.rollNumber.text]];
         NSString *webData= [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
         NSLog(@"%@",webData);
         dispatch_async(dispatch_get_main_queue(), ^{
             
-                self.secretQuestion.text = [webData substringFromIndex:3];
-                self.questionid = [webData substringToIndex:2];
+            self.secretQuestion.text = [webData substringFromIndex:3];
+            self.questionid = [webData substringToIndex:2];
+            if([self.questionid isEqualToString:@"FA"])
+            {
+                [self.secretQuestion setHidden:NO];
+                self.secretQuestion.text = @"Retype Roll Number";
+            }
+            else
+
                 [self showSecretQuestonRelatedStuff];
-          
+            [self.gettingQuestionIndicator stopAnimating];
         });
     });
     
@@ -120,9 +128,9 @@
         });
         }
     });
-dispatch_release(DownloadQueue);
+    dispatch_release(DownloadQueue);
     
-
+    
 }
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {
@@ -136,7 +144,8 @@ dispatch_release(DownloadQueue);
     } else {
         // Not found, so remove keyboard.
         [textField resignFirstResponder];
-        [self logInPressed:nil];
+        if(nextTag ==4)
+            [self logInPressed:nil];
     }
     return NO; // We do not want UITextField to insert line-breaks.
 }
@@ -148,11 +157,13 @@ dispatch_release(DownloadQueue);
     [self setActivityIndicator:nil];
     [self setSecretQuestion:nil];
     [self setAnswerText:nil];
-
+    
+    [self setGettingQuestionIndicator:nil];
     [super viewDidUnload];
 }
 
 -(void) hideSecretQuestonRelatedStuff{
+    [self.answerText setTag:0];
     [self.secretQuestion setHidden:YES];
     [self.answerText setHidden:YES];
     
@@ -161,7 +172,7 @@ dispatch_release(DownloadQueue);
 -(void) showSecretQuestonRelatedStuff{
     [self.secretQuestion setHidden:NO];
     [self.answerText setHidden:NO];
-    
+    [self.answerText setTag:3];
 }
 
 -(void)setViewToDefault{
