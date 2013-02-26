@@ -48,44 +48,40 @@
                                     <outlet property="delegate" destination="y74-1y-AeR" id="mLg-R7-Yq9"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" textAlignment="center" minimumFontSize="17" id="efH-sS-2mq">
-                                <rect key="frame" x="20" y="288" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="y74-1y-AeR" id="DVw-5c-iSS"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Roll Number" textAlignment="center" minimumFontSize="17" id="DWp-vZ-b83">
-                                <rect key="frame" x="20" y="116" width="280" height="30"/>
+                                <rect key="frame" x="20" y="117" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                 <connections>
-                                    <action selector="getSecurityQuestion:" destination="y74-1y-AeR" eventType="editingDidEnd" id="qx7-TV-Vlw"/>
                                     <outlet property="delegate" destination="y74-1y-AeR" id="Ky4-sr-ZF8"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Secret Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VLp-qL-TAS">
-                                <rect key="frame" x="34" y="206" width="252" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo.png" id="rxO-4X-rGP">
                                 <rect key="frame" x="34" y="20" width="252" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <activityIndicatorView hidden="YES" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="yTc-Ko-1Y5">
-                                <rect key="frame" x="250" y="347" width="37" height="37"/>
+                                <rect key="frame" x="249" y="347" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="5Xs-hQ-OPH">
-                                <rect key="frame" x="150" y="233" width="20" height="20"/>
+                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Captcha" textAlignment="center" minimumFontSize="17" id="FqQ-iv-CFA">
+                                <rect key="frame" x="20" y="286" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="y74-1y-AeR" id="0pj-kE-jkQ"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="N6H-z9-t5b">
+                                <rect key="frame" x="82" y="214" width="156" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="LR8-vB-Uvd">
+                                <rect key="frame" x="151" y="235" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -95,11 +91,11 @@
                     <navigationItem key="navigationItem" id="ctX-GU-Mw8"/>
                     <connections>
                         <outlet property="activityIndicator" destination="yTc-Ko-1Y5" id="ezx-27-80a"/>
-                        <outlet property="answerText" destination="efH-sS-2mq" id="wjz-lL-Ysu"/>
-                        <outlet property="gettingQuestionIndicator" destination="5Xs-hQ-OPH" id="34I-Bq-2Bt"/>
+                        <outlet property="captcha" destination="N6H-z9-t5b" id="qif-XA-ctZ"/>
+                        <outlet property="gettingCaptchaIndicator" destination="LR8-vB-Uvd" id="DH3-X2-cgd"/>
+                        <outlet property="passline" destination="FqQ-iv-CFA" id="AUu-ED-rZO"/>
                         <outlet property="password" destination="1eZ-BO-m2a" id="Vp4-Jo-OlL"/>
                         <outlet property="rollNumber" destination="DWp-vZ-b83" id="Ok6-xH-tl5"/>
-                        <outlet property="secretQuestion" destination="VLp-qL-TAS" id="Jg1-t4-sSw"/>
                         <segue destination="2" kind="push" identifier="SendToGrid" id="49X-PD-ZGw"/>
                     </connections>
                 </viewController>
@@ -127,6 +123,26 @@
     <resources>
         <image name="logo.png" width="114" height="126"/>
     </resources>
+    <classes>
+        <class className="GridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logInPressed:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="captcha" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="gettingCaptchaIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="passline" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="rollNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

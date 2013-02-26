@@ -15,7 +15,7 @@
 @implementation LoginViewController
 
 
-@synthesize myParser = _myParser, rollNumber , password , secretQuestion , answerText,activityIndicator ,webHandler , questionid ,reach = _reach, html = _html   ;
+@synthesize myParser = _myParser, rollNumber , password , passline,activityIndicator ,webHandler , reach = _reach, html = _html   ;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,35 +24,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)getSecurityQuestion:(id)sender {
-    [self.gettingQuestionIndicator startAnimating];
-    [self hideSecretQuestonRelatedStuff];
-    //Gets security question using another thread
-    dispatch_queue_t DownloadQueue = dispatch_queue_create("get secret question", NULL) ;
-    
-    dispatch_async( DownloadQueue , ^{
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://erp.iitkgp.ernet.in/SSOAdministration/getSecurityQuestion.htm?user_id=%@&rand_id=1",self.rollNumber.text]];
-        NSString *webData= [NSString stringWithContentsOfURL:url encoding:NSASCIIStringEncoding error:nil];
-        NSLog(@"%@",webData);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            self.secretQuestion.text = [webData substringFromIndex:3];
-            self.questionid = [webData substringToIndex:2];
-            if([self.questionid isEqualToString:@"FA"])
-            {
-                [self.secretQuestion setHidden:NO];
-                self.secretQuestion.text = @"Retype Roll Number";
-            }
-            else
-
-                [self showSecretQuestonRelatedStuff];
-            [self.gettingQuestionIndicator stopAnimating];
-        });
-    });
-    
-    dispatch_release(DownloadQueue);
 }
 
 - (void)viewDidLoad
@@ -70,7 +41,6 @@
         
     }
     [self.navigationController setDelegate:self];
-    [self hideSecretQuestonRelatedStuff];
 
     //Notification for reachability
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -80,7 +50,28 @@
     
     self.reach = [Reachability reachabilityWithHostname:@"www.google.com"];
     [self.reach startNotifier];
+    self.webHandler = [[WebHandler alloc] init];
+    [self loadCaptcha];
+}
+
+-(void) loadCaptcha {
+    [self.gettingCaptchaIndicator startAnimating];
     
+    
+    dispatch_queue_t DownloadQueue = dispatch_queue_create("get captcha", NULL) ;
+    
+    dispatch_async( DownloadQueue , ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.captcha.image = [webHandler requestCaptcha];
+           
+            [self.gettingCaptchaIndicator stopAnimating];
+        });
+    });
+    
+    dispatch_release(DownloadQueue);
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,15 +85,14 @@
     
     //Called when login is pressed
     
-    [self.answerText resignFirstResponder];
+    [self.passline  resignFirstResponder];
     [self.view setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
-    self.webHandler = [[WebHandler alloc] init];
-    
+   
     dispatch_queue_t DownloadQueue = dispatch_queue_create("get timetable", NULL) ;
     
     dispatch_async( DownloadQueue , ^{
-        self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text andSecretAnswer:self.answerText.text  forQuestion:self.questionid ];
+        self.html =  [self.webHandler getTimeTableHTMLForUser:self.rollNumber.text password:self.password.text passline:self.passline.text ];
         
         if([self.html isEqualToString:@"Error"])
         {
@@ -155,35 +145,36 @@
     [self setRollNumber:nil];
     [self setPassword:nil];
     [self setActivityIndicator:nil];
-    [self setSecretQuestion:nil];
-    [self setAnswerText:nil];
-    
-    [self setGettingQuestionIndicator:nil];
     [super viewDidUnload];
 }
 
--(void) hideSecretQuestonRelatedStuff{
-    [self.answerText setTag:0];
-    [self.secretQuestion setHidden:YES];
-    [self.answerText setHidden:YES];
-    
-}
 
--(void) showSecretQuestonRelatedStuff{
-    [self.secretQuestion setHidden:NO];
-    [self.answerText setHidden:NO];
-    [self.answerText setTag:3];
-}
+
+
+
 
 -(void)setViewToDefault{
-    
+    [self loadCaptcha];
     [self.view setUserInteractionEnabled:YES];
     [self.activityIndicator stopAnimating];
     self.rollNumber.text = @"";
     self.password.text = @"";
-    self.answerText.text = @"";
-    [self hideSecretQuestonRelatedStuff];
+    self.passline.text = @"";
     
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 -(void)reachabilityChanged:(NSNotification*)note

@@ -190,8 +190,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         [cell.layer setBorderColor:[UIColor whiteColor].CGColor  ];
         cell.titleLabel.textAlignment = NSTextAlignmentCenter;
         cell.titleLabel.numberOfLines =5;
-        cell.titleLabel.font = [cell.titleLabel.font fontWithSize:9];
-        
+        cell.titleLabel.font = [cell.titleLabel.font fontWithSize:9];//9
         
     }
     
@@ -231,7 +230,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         [headerCell.layer setBorderWidth:1];
         headerCell.layer.cornerRadius = 5;
         [headerCell.layer setBorderColor:[UIColor whiteColor].CGColor  ];
-        headerCell.titleLabel.font = [headerCell.titleLabel.font fontWithSize:15];
+        headerCell.titleLabel.font = [headerCell.titleLabel.font fontWithSize:13];//19
     }
     
     if(section ==0)
@@ -281,5 +280,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
+BOOL isPad() {
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#else
+    return NO;
+#endif
+}
 
 @end

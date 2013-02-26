@@ -19,5 +19,4 @@
 @property (strong , nonatomic)  A3GridTableView *gridTableView;
 @property (strong, nonatomic) GridDataSource * myDataSource;
 -(void)logout;
-
 @end

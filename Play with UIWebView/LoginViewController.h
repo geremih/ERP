@@ -16,18 +16,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *rollNumber;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UILabel *secretQuestion;
-@property (weak, nonatomic) IBOutlet UITextField *answerText;
-@property (strong, nonatomic) NSString * questionid;
+
 @property (strong, nonatomic) NSString * html;
 @property (strong, nonatomic) Reachability *reach;
 @property (strong,nonatomic) Parser * myParser;
 @property ( strong ,nonatomic) NSDictionary * timetable;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *gettingQuestionIndicator;
-
+@property ( weak, nonatomic) IBOutlet UIImageView *captcha;
+@property ( weak , nonatomic) IBOutlet UITextField *passline;
 @property (strong , nonatomic) WebHandler * webHandler;
--(void) hideSecretQuestonRelatedStuff;
--(void) showSecretQuestonRelatedStuff;
+@property (weak , nonatomic) IBOutlet UIActivityIndicatorView * gettingCaptchaIndicator;
 -(void)setViewToDefault;
+-(void) loadCaptcha;
 -(void)reachabilityChanged:(NSNotification*)note;
 @end

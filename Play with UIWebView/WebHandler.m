@@ -17,25 +17,36 @@
 @end
 
 @implementation WebHandler
-@synthesize html = _html , sessionID =_sessionID , viewWeb = _viewWeb , cookieJar = _cookieJar , myParser = _myParser , userid = _userid, password = _password, answer= _answer, questionid = _questionid , DownloadQueue , ssoToken;
+@synthesize html = _html , sessionID =_sessionID ,myParser = _myParser , userid = _userid, password = _password, passline = _passline, DownloadQueue , ssoToken,captchaRequested , captchaURL;
 
 
--(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password andSecretAnswer:(NSString *) answer forQuestion:(NSString *) questionid{
+-(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password passline:(NSString *) passline{
     
     self.userid = userid;
     self.password = password;
-    self.answer = answer;
-    self.questionid = questionid;
+    self.passline = passline;
     
     
     return     [self getTimetable];
 
 }
 
+-(UIImage *) requestCaptcha{
+    captchaRequested = YES;
+    [self requestForHomePage];
+    
+        UIImage * result;
+    
+        NSData * data = [NSData dataWithContentsOfURL:self.captchaURL];
+        result = [UIImage imageWithData:data];
+        
+        return result;
+    
+}
+
 -(NSString *) getTimetable{
     
     NSLog(@"Starting Request");
-    [self requestForHomePage];
     [self requestForLogin];
     if(![self.html isEqualToString:@"Error"])
     {
@@ -58,8 +69,14 @@
     if (!error) {
         NSString *response = [request responseString];
         self.sessionID = [self getValuefromHTML:response forElement:@"sessionToken"];
-        NSLog(@"sessionID is %@ and ssoToken is %@", self.sessionID, self.ssoToken);
         
+        NSError *error = NULL;
+        NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"\"PassImageServlet(.*?)\"" options:NSRegularExpressionCaseInsensitive error:&error];
+        NSTextCheckingResult * result = [regex firstMatchInString:response options:NSMatchingCompleted  range:NSMakeRange(0 , [response length])];
+        NSString * address = [response  substringWithRange:[result rangeAtIndex:1]];
+        address = [@"https://erp.iitkgp.ernet.in/SSOAdministration/PassImageServlet" stringByAppendingString:address];
+        self.captchaURL =[NSURL URLWithString:address];
+        NSLog( address  );
         NSLog(@"Loaded HomePage");
     }
 }
@@ -72,8 +89,7 @@
     ASIFormDataRequest  * postRequest = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:@"https://erp.iitkgp.ernet.in/SSOAdministration/auth.htm"]];
     [postRequest setPostValue:self.userid forKey:@"user_id"];
     [postRequest setPostValue:self.password forKey:@"password"];
-    [postRequest setPostValue: self.questionid forKey:@"question_id"];
-    [postRequest setPostValue: self.answer forKey:@"answer"];
+    [postRequest setPostValue: self.passline forKey:@"passline"];
     [postRequest setPostValue:requestURL forKey:@"requestedUrl"];
     [postRequest setPostValue:self.sessionID forKey:@"sessionToken"];
     [postRequest setPostValue:@"Sign+In" forKey:@"submit"];
@@ -109,7 +125,6 @@
     
     NSError *error = [postRequest error];
     if (!error) {
-        NSString *response = [postRequest responseString];
         NSLog(@"Loaded Welcome");
     }
 }
@@ -124,7 +139,6 @@
     
     NSError *error = [postRequest error];
     if (!error) {
-        NSString *response = [postRequest responseString];
         NSLog(@"Loaded TimeTable");
         
     }
@@ -154,9 +168,9 @@
     NSError *error = NULL;
     NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:[NSString stringWithFormat:@"name=\"%@\" value=\"(.*)\"",element] options:NSRegularExpressionCaseInsensitive error:&error];
     NSTextCheckingResult * result = [regex firstMatchInString:html options:NSMatchingCompleted  range:NSMakeRange(0 , [html length])];
-    self.sessionID = [html substringWithRange:[result rangeAtIndex:1]];
+    NSString * text = [html substringWithRange:[result rangeAtIndex:1]];
     
-    return self.sessionID;
+    return text;
 }
 
 @end

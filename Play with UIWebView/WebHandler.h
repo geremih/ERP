@@ -15,26 +15,23 @@
 @property    (strong, nonatomic) NSString * sessionID;
 @property    (strong, nonatomic) NSString * ssoToken;
 
-@property (weak , nonatomic) IBOutlet UIWebView *viewWeb;
-@property (strong, nonatomic) NSHTTPCookieStorage *cookieJar;
 @property (strong,nonatomic) Parser * myParser;
 
 @property (nonatomic, strong) NSString * userid;
 @property (nonatomic, strong) NSString * password;
-@property (nonatomic, strong) NSString * answer;
-@property (nonatomic, strong) NSString * questionid;
+@property (nonatomic ,strong) NSString * passline;
 @property (nonatomic) dispatch_queue_t DownloadQueue;
 
--(NSString *)getHtmlOfCurrentPage;
 -(NSString *)getValuefromHTML:(NSString *) html forElement:(NSString *) element;
 -(void) requestForHomePage;
 -(void) requestForLogin;
 -(void ) requestForTimeTable;
 -(void) requestForTimeTableJSP;
--(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password andSecretAnswer:(NSString *) answer forQuestion:(NSString *) questionid;
+-(NSString *) getTimeTableHTMLForUser:(NSString *) userid password:(NSString *)password passline:(NSString *) passline;
 -(NSString *) getTimetable;
 -(void) requestForWelcomePage;
-
-
+-(UIImage *) requestCaptcha;
+@property (nonatomic) BOOL captchaRequested;
+@property (nonatomic) NSURL * captchaURL;
 
 @end
