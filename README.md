@@ -1,7 +1,6 @@
-ERP iOS App
-
-ERP on your iDevice
+#ERP iOS App
 ===
+
 
 
 ##Features
