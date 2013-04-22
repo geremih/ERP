@@ -13,7 +13,7 @@
 
 ##Requirement
 
-XCode 4 (or above)
+XCode 4 (or above) <br />
 iOS 5 (or above) SDK
 
 ##TODO
